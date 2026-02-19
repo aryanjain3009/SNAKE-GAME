@@ -15,7 +15,7 @@ html, body{
     --bg-fill-color: rgb(164, 36, 75);
 
     /* for food*/
-    --bg-food-color : rgb(159, 198, 32);
+    --bg-food-color : rgb(24, 78, 121);
 
     --text-color: #000;
     /* Spacing Variables */
@@ -28,7 +28,7 @@ html, body{
     --space-3xl : 64px;
 
     /*  border color */
-    --border-primary-color: #710d0d;   
+    --border-primary-color: #0d120e;   
 
     /*  border radius */
     --border-radius-xs: 4px;
