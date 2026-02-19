@@ -1,4 +1,6 @@
 const board = document.querySelector('.board');
+const StartButton = document.querySelector('.btn-start')
+const modal = document.querySelector('.modal')
 const blockheight = 50;
 const blockwidth = 50;
 
@@ -48,36 +50,43 @@ function render (){
     }else if(direction === 'down'){
         head = {x: snake[0].x + 1, y: snake[0].y}
     }
-    if(head.x<0 || head.y <0 || head.x >=rows|| head.y >=cols){
-        alert("GAME OVER")
-        clearInterval(intervalId)
-    }
-
+ 
+        //food logic
     if (head.x === food.x && head.y === food.y) {
         // Ate food! Remove old food class and make new food
         blocks[`${food.x}-${food.y}`].classList.remove("food");
         food = { x: Math.floor(Math.random() * rows), y: Math.floor(Math.random() * cols) };
         blocks[`${food.x}-${food.y}`].classList.add("food");
-        // We DON'T pop here, so the snake grows
-    } else {
-        // Didn't eat food, so remove the tail
-        snake.pop();
-    }
+        
+        snake.unshift(head);
+    } 
 
     snake.forEach(segment => {
         blocks[`${segment.x}-${segment.y}`].classList.remove("fill")
     })
     snake.unshift(head)
     snake.pop()
-    render()
     snake.forEach(segment => {
     blocks[`${segment.x}-${segment.y}`].classList.add("fill")
     })
+
+    if(head.x<0 || head.y <0 || head.x >=rows|| head.y >=cols){
+        alert("GAME OVER")
+        clearInterval(intervalId)
+    }
+
 }
 
 intervalId = setInterval(() => {
     render();
 }, 300);
+
+StartButton.addEventListener("click", () => {
+    modal.style.display = "none"
+    intervalId = setInterval(() => {
+        render()
+    })
+})
 
 addEventListener('keydown', (e) => {
     if(e.key === 'ArrowUp' && direction !== 'down'){
