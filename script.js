@@ -18,12 +18,12 @@ const snake = [
 ]
 let direction = 'down'
 
-// for(let i=0; i< rows*cols ; i++){
-//     const block = document.createElement('div')
-//     block.classList.add("block")
-//     board.appendChild(block);
+for(let i=0; i< rows*cols ; i++){
+    const block = document.createElement('div')
+    block.classList.add("block")
+    board.appendChild(block);
 
-// }
+}
 
 for(let row =0; row<rows ; row++){
     for(let col = 0; col<cols; col++){
