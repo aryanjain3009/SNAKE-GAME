@@ -1,7 +1,7 @@
 const board = document.querySelector('.board');
 const StartButton = document.querySelector('.btn-start')
 const modal = document.querySelector('.modal')
-const blockheight = 50;
+const blockheight = 10;
 const blockwidth = 50;
 
 const cols = Math.floor (board.clientWidth/blockwidth);
