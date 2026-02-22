@@ -77,9 +77,9 @@ function render (){
 
 }
 
-intervalId = setInterval(() => {
-    render();
-}, 300);
+// intervalId = setInterval(() => {
+//     render();
+// }, 300);
 
 StartButton.addEventListener("click", () => {
     modal.style.display = "none"
